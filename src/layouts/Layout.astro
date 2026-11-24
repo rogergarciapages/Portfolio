@@ -22,8 +22,8 @@ const personSchema = {
   "@type": "Person",
   "name": "Roger Garcia Pagès",
   "jobTitle": locale === 'fr' 
-    ? "Ingénieur Systèmes & Automatisation | Senior Data Analyst" 
-    : "Systems & Automation Engineer | Senior Data Analyst",
+    ? "Ingénieur Systèmes & Automatisation | Senior Data Analyst | Revenue Manager" 
+    : "Systems & Automation Engineer | Senior Data Analyst | Revenue Manager",
   "url": canonicalUrl,
   "email": "mailto:roger.garcia75@gmail.com",
   "telephone": "+34646869653",
@@ -59,12 +59,27 @@ const personSchema = {
 ---
 
 <!doctype html>
-<html lang={locale} class="scroll-smooth bg-swiss-bg text-swiss-primary">
+<html lang={locale} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Anti-FOUC Dark Mode Immediate Initializer -->
+    <script is:inline>
+      (function() {
+        try {
+          const stored = localStorage.getItem('theme');
+          const isDark = stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (isDark) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (_) {}
+      })();
+    </script>
 
     <!-- SEO Meta Tags -->
     <title>{t.meta.title}</title>
@@ -104,7 +119,7 @@ const personSchema = {
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
   </head>
-  <body class="min-h-screen flex flex-col bg-swiss-bg text-swiss-primary font-sans antialiased selection:bg-swiss-blue selection:text-white">
+  <body class="min-h-screen flex flex-col bg-swiss-bg dark:bg-[#0B0F19] text-swiss-primary dark:text-[#F9FAFB] font-sans antialiased selection:bg-swiss-blue selection:text-white transition-colors duration-200">
     <!-- Accessibility Skip Link -->
     <a
       href="#main-content"

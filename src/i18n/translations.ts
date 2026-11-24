@@ -17,6 +17,9 @@ export const translations = {
       contact: "Contact",
       switchLangAria: "Changer de langue",
       menuAria: "Ouvrir le menu de navigation",
+      toggleThemeAria: "Basculer entre le mode clair et le mode sombre",
+      themeLight: "Clair",
+      themeDark: "Sombre"
     },
     hero: {
       greeting: "Bonjour, Hello, 今日は — Je suis Roger.",
@@ -25,7 +28,7 @@ export const translations = {
       bio: "Spécialiste hybride avec plus de 15 ans d'expérience alliant ingénierie de données, automatisation de processus (Python, SQL, APIs) et stratégie commerciale (Revenue Management). Passionné par la résolution de problèmes complexes et la création de solutions numériques efficaces.",
       logisticsBadge: "Nationalité Espagnole (Libre circulation UE/EFTA) · Installation en Suisse Romande\u00A0: Mai 2027",
       statusIndicator: "Disponible dès Mai 2027 · Genève / Vaud",
-      ctaCV: "Télécharger CV (PDF)",
+      ctaCV: "Télécharger CV Unifié (PDF)",
       ctaContact: "Me contacter",
       emailAria: "Envoyer un e-mail à Roger Garcia Pagès",
       callAria: "Appeler Roger Garcia Pagès",
@@ -128,9 +131,22 @@ export const translations = {
     cvCenter: {
       sectionBadge: "Dossiers de Candidature",
       title: "Centrale de téléchargement des CVs",
-      subtitle: "Trois déclinaisons ciblées et synthétiques adaptées aux exigences précises des recruteurs et ATS suisses.",
+      subtitle: "Version unifiée polyvalente (Thèmes Clair & Sombre) et déclinaisons ciblées adaptées aux exigences des recruteurs et ATS suisses.",
       downloadButton: "Télécharger le PDF",
       previewButton: "Consulter en ligne",
+      unifiedCard: {
+        badge: "Recommandé · Polyvalent",
+        title: "CV Unifié — Systèmes, Data Analytics & Revenue Operations",
+        subtitle: "Synthèse complète à 360° conçue pour couvrir l'intégralité du périmètre technique et commercial des 3 profils.",
+        focusLabel: "Périmètre complet unifié\u00A0:",
+        focus: "Ingénierie & Automatisation Python/Jira/APIs · Architecture SQL/ETL & Power BI · IA/NLP & Datasets · Revenue Management & E-commerce.",
+        summary: "Document de référence en 2 pages, fidèle à la charte typographique suisse d'origine, disponible en versions Thème Clair et Thème Sombre.",
+        downloadLight: "PDF Thème Clair",
+        downloadDark: "PDF Thème Sombre",
+        preview: "Aperçu interactif",
+        lightFile: "/cv/ROGER_GARCIA_PAGES_Unified_Resume_Light.pdf",
+        darkFile: "/cv/ROGER_GARCIA_PAGES_Unified_Resume_Dark.pdf"
+      },
       cards: [
         {
           id: "tech-automation",
@@ -199,6 +215,9 @@ export const translations = {
       contact: "Contact",
       switchLangAria: "Switch language",
       menuAria: "Open navigation menu",
+      toggleThemeAria: "Toggle light and dark mode",
+      themeLight: "Light",
+      themeDark: "Dark"
     },
     hero: {
       greeting: "Hello, Bonjour, 今日は — I'm Roger.",
@@ -207,7 +226,7 @@ export const translations = {
       bio: "Hybrid specialist with 15+ years of experience combining data engineering, process automation (Python, SQL, APIs), and commercial strategy (Revenue Management). Passionate about solving complex problems and turning ideas into scalable digital solutions.",
       logisticsBadge: "Spanish Nationality (EU/EFTA Free Movement) · Relocating to French-Speaking Switzerland: May 2027",
       statusIndicator: "Available from May 2027 · Geneva / Vaud",
-      ctaCV: "Download CV (PDF)",
+      ctaCV: "Download Unified CV (PDF)",
       ctaContact: "Get in touch",
       emailAria: "Send an email to Roger Garcia Pagès",
       callAria: "Call Roger Garcia Pagès",
@@ -310,9 +329,22 @@ export const translations = {
     cvCenter: {
       sectionBadge: "Application Dossiers",
       title: "Tailored CVs Download Center",
-      subtitle: "Three laser-focused CV versions tailored to Swiss recruiters, hiring managers, and ATS compliance.",
+      subtitle: "Versatile Unified Master Resume (Light & Dark Editions) plus laser-focused CV versions tailored to Swiss recruiters, hiring managers, and ATS compliance.",
       downloadButton: "Download PDF",
       previewButton: "Preview Online",
+      unifiedCard: {
+        badge: "Recommended · All-in-One",
+        title: "Unified Master CV — Systems, Data Analytics & Revenue Operations",
+        subtitle: "Comprehensive 360° dossier engineered to cover the complete scope of engineering, analytics, and commercial roles.",
+        focusLabel: "Unified Core Scope:",
+        focus: "Python/Jira/APIs Systems & Automation · SQL/ETL & Power BI Architecture · AI/NLP Datasets · Revenue Management & E-commerce.",
+        summary: "Precision 2-page document with exact Swiss visual cohesion, provided in both Light Theme and Dark Theme PDF editions.",
+        downloadLight: "Light Theme PDF",
+        downloadDark: "Dark Theme PDF",
+        preview: "Interactive Preview",
+        lightFile: "/cv/ROGER_GARCIA_PAGES_Unified_Resume_Light.pdf",
+        darkFile: "/cv/ROGER_GARCIA_PAGES_Unified_Resume_Dark.pdf"
+      },
       cards: [
         {
           id: "tech-automation",

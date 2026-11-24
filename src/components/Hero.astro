@@ -9,15 +9,15 @@ const { locale } = Astro.props;
 const t = translations[locale];
 ---
 
-<section id="about" class="relative pt-12 pb-16 md:pt-20 md:pb-24 border-b border-swiss-border overflow-hidden">
-  <!-- Subtle architectural background grid -->
+<section id="about" class="relative pt-12 pb-16 md:pt-20 md:pb-24 border-b border-swiss-border dark:border-slate-800 overflow-hidden bg-swiss-bg dark:bg-[#0B0F19] transition-colors duration-200">
+  <!-- Architectural background grid -->
   <div class="absolute inset-0 swiss-grid-pattern opacity-60 pointer-events-none"></div>
 
   <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Top Relocation & Permit Alert Badge -->
-    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-blue-50/80 border border-blue-200/80 text-swiss-blue text-xs font-mono font-medium mb-8">
-      <span class="inline-block w-2 h-2 rounded-full bg-swiss-blue animate-pulse"></span>
+    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-blue-50/80 dark:bg-sky-950/60 border border-blue-200/80 dark:border-sky-800/80 text-swiss-blue dark:text-sky-400 text-xs font-mono font-medium mb-8">
+      <span class="inline-block w-2 h-2 rounded-full bg-swiss-blue dark:bg-sky-400 animate-pulse"></span>
       <span>{t.hero.logisticsBadge}</span>
     </div>
 
@@ -26,21 +26,21 @@ const t = translations[locale];
       <!-- Left Column: Bio & Core Pitch -->
       <div class="lg:col-span-7 flex flex-col justify-center">
         
-        <p class="font-mono text-sm tracking-wider text-swiss-muted uppercase mb-3">
+        <p class="font-mono text-sm tracking-wider text-swiss-muted dark:text-slate-400 uppercase mb-3">
           {t.hero.greeting}
         </p>
 
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-swiss-primary tracking-tighter leading-none mb-4">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-swiss-primary dark:text-white tracking-tighter leading-none mb-4">
           {t.hero.name}
         </h1>
 
         <div class="inline-block mb-6">
-          <p class="text-lg sm:text-xl font-semibold text-swiss-blue leading-snug">
+          <p class="text-lg sm:text-xl font-semibold text-swiss-blue dark:text-sky-400 leading-snug">
             {t.hero.headline}
           </p>
         </div>
 
-        <p class="text-base sm:text-lg text-swiss-secondary leading-relaxed mb-8 max-w-2xl">
+        <p class="text-base sm:text-lg text-swiss-secondary dark:text-slate-300 leading-relaxed mb-8 max-w-2xl">
           {t.hero.bio}
         </p>
 
@@ -48,7 +48,7 @@ const t = translations[locale];
         <div class="flex flex-wrap items-center gap-4 mb-10">
           <a
             href="#cv"
-            class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded text-white bg-swiss-blue hover:bg-swiss-blue-hover shadow-swiss-card transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-swiss-blue focus:ring-offset-2"
+            class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded text-white bg-swiss-blue hover:bg-swiss-blue-hover dark:bg-sky-600 dark:hover:bg-sky-500 shadow-swiss-card transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-swiss-blue focus:ring-offset-2"
           >
             <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -58,9 +58,9 @@ const t = translations[locale];
 
           <a
             href="#contact"
-            class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded text-swiss-primary bg-white hover:bg-neutral-50 border border-swiss-border hover:border-swiss-border-hover shadow-swiss-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-swiss-primary focus:ring-offset-2"
+            class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded text-swiss-primary dark:text-slate-100 bg-white dark:bg-slate-800 hover:bg-neutral-50 dark:hover:bg-slate-750 border border-swiss-border dark:border-slate-700 hover:border-swiss-border-hover shadow-swiss-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-swiss-primary focus:ring-offset-2"
           >
-            <svg class="w-4 h-4 mr-2 text-swiss-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg class="w-4 h-4 mr-2 text-swiss-secondary dark:text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
             {t.hero.ctaContact}
@@ -68,10 +68,10 @@ const t = translations[locale];
         </div>
 
         <!-- Direct Reach Links -->
-        <div class="flex flex-wrap items-center gap-6 pt-6 border-t border-swiss-border/80 text-xs font-mono text-swiss-secondary">
+        <div class="flex flex-wrap items-center gap-6 pt-6 border-t border-swiss-border/80 dark:border-slate-800 text-xs font-mono text-swiss-secondary dark:text-slate-400">
           <a
             href="mailto:roger.garcia75@gmail.com"
-            class="flex items-center gap-1.5 hover:text-swiss-blue transition-colors"
+            class="flex items-center gap-1.5 hover:text-swiss-blue dark:hover:text-sky-400 transition-colors"
             aria-label={t.hero.emailAria}
           >
             <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
@@ -80,7 +80,7 @@ const t = translations[locale];
 
           <a
             href="tel:+34646869653"
-            class="hover:text-swiss-blue transition-colors"
+            class="hover:text-swiss-blue dark:hover:text-sky-400 transition-colors"
             aria-label={t.hero.callAria}
           >
             +34 646 86 96 53
@@ -91,17 +91,17 @@ const t = translations[locale];
               href="https://github.com/rogergarciapages"
               target="_blank"
               rel="noopener noreferrer"
-              class="hover:text-swiss-blue transition-colors"
+              class="hover:text-swiss-blue dark:hover:text-sky-400 transition-colors"
               aria-label={t.hero.githubAria}
             >
               GitHub ↗
             </a>
-            <span class="text-neutral-300">·</span>
+            <span class="text-neutral-300 dark:text-slate-600">·</span>
             <a
-              href="https://linkedin.com"
+              href="https://linkedin.com/in/roger-garcia-pages"
               target="_blank"
               rel="noopener noreferrer"
-              class="hover:text-swiss-blue transition-colors"
+              class="hover:text-swiss-blue dark:hover:text-sky-400 transition-colors"
               aria-label={t.hero.linkedinAria}
             >
               LinkedIn ↗
@@ -116,8 +116,8 @@ const t = translations[locale];
         <div class="relative w-full max-w-sm">
           
           <!-- Portrait Container with Swiss Architectural Frame -->
-          <div class="relative p-2 bg-white rounded-xl border border-swiss-border shadow-swiss-card">
-            <div class="relative aspect-square w-full rounded-lg overflow-hidden bg-neutral-100">
+          <div class="relative p-2 bg-white dark:bg-slate-800 rounded-xl border border-swiss-border dark:border-slate-700 shadow-swiss-card">
+            <div class="relative aspect-square w-full rounded-lg overflow-hidden bg-neutral-100 dark:bg-slate-900">
               <img
                 src="/images/roger-profile.jpg"
                 alt="Roger Garcia Pagès - Ingénieur Systèmes & Automatisation"
@@ -129,17 +129,17 @@ const t = translations[locale];
             </div>
 
             <!-- Floating Status Indicator Badge -->
-            <div class="mt-3 px-3 py-2 bg-neutral-50 rounded border border-swiss-border flex items-center justify-between text-xs">
+            <div class="mt-3 px-3 py-2 bg-neutral-50 dark:bg-slate-900/90 rounded border border-swiss-border dark:border-slate-700 flex items-center justify-between text-xs">
               <div class="flex items-center gap-2">
                 <span class="relative flex h-2.5 w-2.5">
                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
                 </span>
-                <span class="font-medium text-swiss-primary">
+                <span class="font-medium text-swiss-primary dark:text-white">
                   {t.hero.statusIndicator}
                 </span>
               </div>
-              <span class="text-[10px] font-mono text-swiss-muted uppercase">
+              <span class="text-[10px] font-mono text-swiss-muted dark:text-slate-400 uppercase">
                 CH · 2027
               </span>
             </div>
@@ -147,29 +147,29 @@ const t = translations[locale];
 
           <!-- Micro Metric Highlights -->
           <div class="grid grid-cols-3 gap-2 mt-4">
-            <div class="bg-white p-3 rounded-lg border border-swiss-border text-center shadow-swiss-sm">
-              <div class="text-xl font-bold font-mono text-swiss-primary">
+            <div class="bg-white dark:bg-slate-800 p-3 rounded-lg border border-swiss-border dark:border-slate-700 text-center shadow-swiss-sm">
+              <div class="text-xl font-bold font-mono text-swiss-primary dark:text-white">
                 {t.hero.stats.expYears}
               </div>
-              <div class="text-[10px] text-swiss-muted uppercase tracking-tight mt-0.5">
+              <div class="text-[10px] text-swiss-muted dark:text-slate-400 uppercase tracking-tight mt-0.5">
                 {t.hero.stats.expLabel}
               </div>
             </div>
 
-            <div class="bg-white p-3 rounded-lg border border-swiss-border text-center shadow-swiss-sm">
-              <div class="text-xl font-bold font-mono text-swiss-blue">
+            <div class="bg-white dark:bg-slate-800 p-3 rounded-lg border border-swiss-border dark:border-slate-700 text-center shadow-swiss-sm">
+              <div class="text-xl font-bold font-mono text-swiss-blue dark:text-sky-400">
                 {t.hero.stats.automationImpact}
               </div>
-              <div class="text-[10px] text-swiss-muted uppercase tracking-tight mt-0.5">
+              <div class="text-[10px] text-swiss-muted dark:text-slate-400 uppercase tracking-tight mt-0.5">
                 {t.hero.stats.automationLabel}
               </div>
             </div>
 
-            <div class="bg-white p-3 rounded-lg border border-swiss-border text-center shadow-swiss-sm">
-              <div class="text-xl font-bold font-mono text-swiss-primary">
+            <div class="bg-white dark:bg-slate-800 p-3 rounded-lg border border-swiss-border dark:border-slate-700 text-center shadow-swiss-sm">
+              <div class="text-xl font-bold font-mono text-swiss-primary dark:text-white">
                 {t.hero.stats.legalSupport}
               </div>
-              <div class="text-[10px] text-swiss-muted uppercase tracking-tight mt-0.5">
+              <div class="text-[10px] text-swiss-muted dark:text-slate-400 uppercase tracking-tight mt-0.5">
                 {t.hero.stats.legalLabel}
               </div>
             </div>

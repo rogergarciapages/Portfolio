@@ -7,36 +7,156 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = translations[locale];
+const unified = t.cvCenter.unifiedCard;
 ---
 
-<section id="cv" class="py-16 md:py-24 border-b border-swiss-border bg-swiss-bg">
+<section id="cv" class="py-16 md:py-24 border-b border-swiss-border dark:border-slate-800 bg-swiss-bg dark:bg-[#0B0F19] transition-colors duration-200">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Section Header -->
     <div class="max-w-3xl mb-12">
-      <div class="inline-block px-2.5 py-1 rounded bg-neutral-100 border border-swiss-border text-swiss-secondary font-mono text-xs uppercase tracking-wider mb-3">
+      <div class="inline-block px-2.5 py-1 rounded bg-neutral-100 dark:bg-slate-800 border border-swiss-border dark:border-slate-700 text-swiss-secondary dark:text-slate-300 font-mono text-xs uppercase tracking-wider mb-3">
         {t.cvCenter.sectionBadge}
       </div>
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-swiss-primary tracking-tight">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-swiss-primary dark:text-white tracking-tight">
         {t.cvCenter.title}
       </h2>
-      <p class="mt-2 text-base text-swiss-secondary">
+      <p class="mt-2 text-base text-swiss-secondary dark:text-slate-300">
         {t.cvCenter.subtitle}
       </p>
     </div>
 
-    <!-- 3 Tailored Download Cards Grid -->
+    <!-- FEATURED MASTER UNIFIED CV CARD (360° Scope) -->
+    <div class="mb-12 relative overflow-hidden rounded-2xl bg-gradient-to-br from-white via-white to-blue-50/40 dark:from-slate-900 dark:via-slate-900 dark:to-sky-950/30 border-2 border-swiss-blue/30 dark:border-sky-500/30 shadow-swiss-hover p-6 sm:p-8">
+      
+      <!-- Top Badges & Tags -->
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
+        <div class="flex items-center gap-2">
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono font-bold bg-swiss-blue text-white shadow-swiss-sm">
+            ★ {unified.badge}
+          </span>
+          <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-mono bg-blue-50 dark:bg-sky-950/80 text-swiss-blue dark:text-sky-300 border border-blue-200 dark:border-sky-800">
+            2 Pages · Cohésion Typographique Suisse
+          </span>
+        </div>
+
+        <div class="flex items-center gap-2 font-mono text-xs text-swiss-muted dark:text-slate-400">
+          <span class="flex items-center gap-1.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+            ATS-Optimized
+          </span>
+        </div>
+      </div>
+
+      <!-- Title & Subtitle -->
+      <h3 class="text-2xl sm:text-3xl font-extrabold text-swiss-primary dark:text-white tracking-tight mb-2">
+        {unified.title}
+      </h3>
+      <p class="text-sm sm:text-base text-swiss-secondary dark:text-slate-300 leading-relaxed mb-6 max-w-3xl">
+        {unified.subtitle}
+      </p>
+
+      <!-- 4 Unified Pillars Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mb-8">
+        <div class="p-3.5 rounded-lg bg-white/80 dark:bg-slate-800/80 border border-swiss-border dark:border-slate-700">
+          <div class="text-xs font-mono font-bold text-swiss-blue dark:text-sky-400 uppercase tracking-tight mb-1">
+            1. Ingénierie & Ops
+          </div>
+          <div class="text-[11px] text-swiss-secondary dark:text-slate-300">
+            Python, Groovy, APIs REST, Jira/ServiceNow, Support L3, Cloud AWS/S3.
+          </div>
+        </div>
+
+        <div class="p-3.5 rounded-lg bg-white/80 dark:bg-slate-800/80 border border-swiss-border dark:border-slate-700">
+          <div class="text-xs font-mono font-bold text-swiss-blue dark:text-sky-400 uppercase tracking-tight mb-1">
+            2. Data Analytics & BI
+          </div>
+          <div class="text-[11px] text-swiss-secondary dark:text-slate-300">
+            SQL avancé, ETL, Power BI (DAX), Pandas, modélisation financière, KPIs.
+          </div>
+        </div>
+
+        <div class="p-3.5 rounded-lg bg-white/80 dark:bg-slate-800/80 border border-swiss-border dark:border-slate-700">
+          <div class="text-xs font-mono font-bold text-swiss-blue dark:text-sky-400 uppercase tracking-tight mb-1">
+            3. IA, NLP & Qualité
+          </div>
+          <div class="text-[11px] text-swiss-secondary dark:text-slate-300">
+            Datasets IA, Search Intent, analyse d'incidents, conformité, RCA.
+          </div>
+        </div>
+
+        <div class="p-3.5 rounded-lg bg-white/80 dark:bg-slate-800/80 border border-swiss-border dark:border-slate-700">
+          <div class="text-xs font-mono font-bold text-swiss-blue dark:text-sky-400 uppercase tracking-tight mb-1">
+            4. Revenue & E-com
+          </div>
+          <div class="text-[11px] text-swiss-secondary dark:text-slate-300">
+            Dynamic Pricing, Yield Management, SiteMinder, OTAs, Forecasting.
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons Row (Light PDF, Dark PDF, Interactive Preview) -->
+      <div class="flex flex-wrap items-center gap-3 pt-6 border-t border-swiss-border dark:border-slate-800">
+        
+        <!-- Light Theme PDF Download -->
+        <a
+          href={unified.lightFile}
+          download
+          class="inline-flex items-center justify-center px-5 py-2.5 text-xs font-semibold rounded-lg text-white bg-swiss-blue hover:bg-swiss-blue-hover shadow-swiss-sm transition-all focus:outline-none focus:ring-2 focus:ring-swiss-blue"
+        >
+          <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          {unified.downloadLight}
+        </a>
+
+        <!-- Dark Theme PDF Download -->
+        <a
+          href={unified.darkFile}
+          download
+          class="inline-flex items-center justify-center px-5 py-2.5 text-xs font-semibold rounded-lg text-white bg-slate-900 hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-700 shadow-swiss-sm transition-all focus:outline-none focus:ring-2 focus:ring-slate-400"
+        >
+          <svg class="w-4 h-4 mr-2 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+          {unified.downloadDark}
+        </a>
+
+        <!-- In-Browser Preview Button (Opens Modal) -->
+        <button
+          type="button"
+          id="open-cv-modal-btn"
+          class="inline-flex items-center justify-center px-4 py-2.5 text-xs font-medium rounded-lg text-swiss-primary dark:text-slate-200 bg-white dark:bg-slate-800 hover:bg-neutral-50 dark:hover:bg-slate-700 border border-swiss-border dark:border-slate-700 transition-colors"
+        >
+          <svg class="w-4 h-4 mr-2 text-swiss-secondary dark:text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+          </svg>
+          {unified.preview}
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Subtitle for the 3 Specialized Tracks -->
+    <div class="mb-6">
+      <h4 class="text-sm font-mono font-bold uppercase tracking-wider text-swiss-muted dark:text-slate-400">
+        {locale === 'fr' ? 'Déclinaisons Spécialisées par Filière' : 'Specialized Track Editions'}
+      </h4>
+    </div>
+
+    <!-- 3 Targeted Download Cards Grid -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {t.cvCenter.cards.map((cv, index) => (
-        <div class="bg-white rounded-xl border border-swiss-border card-hover flex flex-col justify-between p-6 sm:p-7 shadow-swiss-card">
+      {t.cvCenter.cards.map((cv) => (
+        <div class="bg-white dark:bg-slate-900 rounded-xl border border-swiss-border dark:border-slate-800 card-hover flex flex-col justify-between p-6 sm:p-7 shadow-swiss-card">
           
           <div>
             <!-- Top Tag and Format Badge -->
             <div class="flex items-center justify-between gap-2 mb-4">
-              <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-neutral-100 text-swiss-primary border border-swiss-border">
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-neutral-100 dark:bg-slate-800 text-swiss-primary dark:text-slate-200 border border-swiss-border dark:border-slate-700">
                 {cv.tag}
               </span>
-              <span class="inline-flex items-center gap-1 font-mono text-xs text-swiss-muted">
+              <span class="inline-flex items-center gap-1 font-mono text-xs text-swiss-muted dark:text-slate-400">
                 <svg class="w-3.5 h-3.5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
                 </svg>
@@ -45,32 +165,32 @@ const t = translations[locale];
             </div>
 
             <!-- Card Title -->
-            <h3 class="text-lg font-bold text-swiss-primary tracking-tight mb-3 leading-snug">
+            <h3 class="text-lg font-bold text-swiss-primary dark:text-white tracking-tight mb-3 leading-snug">
               {cv.title}
             </h3>
 
             <!-- Role Fit Summary -->
-            <p class="text-xs text-swiss-secondary leading-relaxed mb-4">
+            <p class="text-xs text-swiss-secondary dark:text-slate-300 leading-relaxed mb-4">
               {cv.summary}
             </p>
 
             <!-- Key Competencies Box -->
-            <div class="p-3 rounded bg-neutral-50 border border-neutral-200/80 mb-6 text-xs leading-normal">
-              <div class="font-mono font-semibold text-swiss-primary mb-1">
+            <div class="p-3 rounded bg-neutral-50 dark:bg-slate-800/60 border border-neutral-200/80 dark:border-slate-700/80 mb-6 text-xs leading-normal">
+              <div class="font-mono font-semibold text-swiss-primary dark:text-slate-200 mb-1">
                 {cv.focusLabel}
               </div>
-              <div class="text-swiss-secondary font-mono text-[11px]">
+              <div class="text-swiss-secondary dark:text-slate-400 font-mono text-[11px]">
                 {cv.focus}
               </div>
             </div>
           </div>
 
           <!-- Action Buttons -->
-          <div class="space-y-2 pt-4 border-t border-neutral-100">
+          <div class="space-y-2 pt-4 border-t border-neutral-100 dark:border-slate-800">
             <a
               href={cv.file}
               download
-              class="w-full inline-flex items-center justify-center px-4 py-2.5 text-xs font-semibold rounded text-white bg-swiss-blue hover:bg-swiss-blue-hover shadow-swiss-sm transition-colors focus:outline-none focus:ring-2 focus:ring-swiss-blue focus:ring-offset-2"
+              class="w-full inline-flex items-center justify-center px-4 py-2.5 text-xs font-semibold rounded text-white bg-swiss-blue hover:bg-swiss-blue-hover dark:bg-sky-600 dark:hover:bg-sky-500 shadow-swiss-sm transition-colors focus:outline-none focus:ring-2 focus:ring-swiss-blue"
             >
               <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -82,7 +202,7 @@ const t = translations[locale];
               href={cv.file}
               target="_blank"
               rel="noopener noreferrer"
-              class="w-full inline-flex items-center justify-center px-4 py-2 text-xs font-medium rounded text-swiss-secondary hover:text-swiss-primary bg-neutral-50 hover:bg-neutral-100 border border-swiss-border transition-colors"
+              class="w-full inline-flex items-center justify-center px-4 py-2 text-xs font-medium rounded text-swiss-secondary dark:text-slate-300 hover:text-swiss-primary dark:hover:text-white bg-neutral-50 dark:bg-slate-800 hover:bg-neutral-100 dark:hover:bg-slate-700 border border-swiss-border dark:border-slate-700 transition-colors"
             >
               <svg class="w-3.5 h-3.5 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -97,4 +217,132 @@ const t = translations[locale];
     </div>
 
   </div>
+
+  <!-- INTERACTIVE UNIFIED CV MODAL VIEWER -->
+  <div id="cv-modal" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6" role="dialog" aria-modal="true" aria-label="Aperçu interactif du CV Unifié">
+    <div class="relative w-full max-w-4xl max-h-[92vh] bg-white dark:bg-slate-900 rounded-2xl shadow-2xl flex flex-col border border-swiss-border dark:border-slate-700 overflow-hidden">
+      
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between px-6 py-4 border-b border-swiss-border dark:border-slate-800 bg-neutral-50 dark:bg-slate-850">
+        <div class="flex items-center gap-3">
+          <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+          <div>
+            <h4 class="text-sm font-bold text-swiss-primary dark:text-white">
+              {unified.title}
+            </h4>
+            <span class="text-xs font-mono text-swiss-muted dark:text-slate-400">
+              A4 · 2 Pages · Cohésion Visuelle Suisse
+            </span>
+          </div>
+        </div>
+
+        <!-- Controls: Theme toggle & Close -->
+        <div class="flex items-center gap-3">
+          <div class="flex items-center bg-neutral-200 dark:bg-slate-800 p-0.5 rounded-lg text-xs font-mono">
+            <button
+              id="modal-view-light"
+              type="button"
+              class="px-2.5 py-1 rounded-md bg-white dark:bg-transparent text-swiss-primary dark:text-slate-300 font-bold shadow-sm transition-all"
+            >
+              Clair
+            </button>
+            <button
+              id="modal-view-dark"
+              type="button"
+              class="px-2.5 py-1 rounded-md bg-transparent dark:bg-slate-700 text-swiss-secondary dark:text-white font-bold transition-all"
+            >
+              Sombre
+            </button>
+          </div>
+
+          <button
+            id="close-cv-modal-btn"
+            type="button"
+            class="p-1.5 rounded-lg text-swiss-secondary dark:text-slate-400 hover:text-swiss-primary dark:hover:text-white hover:bg-neutral-200 dark:hover:bg-slate-800 transition-colors"
+            aria-label="Fermer la fenêtre d'aperçu"
+          >
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal Body: Embedded PDF View -->
+      <div class="flex-grow overflow-auto p-4 bg-neutral-100 dark:bg-slate-950 flex justify-center">
+        <iframe
+          id="cv-modal-iframe"
+          src={unified.lightFile}
+          class="w-full h-[70vh] rounded-lg shadow border border-swiss-border dark:border-slate-800 bg-white"
+          title="Aperçu interactif du CV"
+        ></iframe>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="px-6 py-3.5 border-t border-swiss-border dark:border-slate-800 bg-neutral-50 dark:bg-slate-850 flex items-center justify-between">
+        <span class="text-xs font-mono text-swiss-muted dark:text-slate-400">
+          Format PDF vectoriel haute définition
+        </span>
+        <div class="flex items-center gap-2">
+          <a
+            id="modal-download-link"
+            href={unified.lightFile}
+            download
+            class="px-4 py-1.5 text-xs font-semibold rounded text-white bg-swiss-blue hover:bg-swiss-blue-hover shadow transition-colors"
+          >
+            Télécharger le PDF
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
+
+<script>
+  // CV Modal functionality
+  const openBtn = document.getElementById('open-cv-modal-btn');
+  const closeBtn = document.getElementById('close-cv-modal-btn');
+  const modal = document.getElementById('cv-modal');
+  const iframe = document.getElementById('cv-modal-iframe') as HTMLIFrameElement | null;
+  const viewLightBtn = document.getElementById('modal-view-light');
+  const viewDarkBtn = document.getElementById('modal-view-dark');
+  const downloadLink = document.getElementById('modal-download-link') as HTMLAnchorElement | null;
+
+  const lightFile = '/cv/ROGER_GARCIA_PAGES_Unified_Resume_Light.pdf';
+  const darkFile = '/cv/ROGER_GARCIA_PAGES_Unified_Resume_Dark.pdf';
+
+  openBtn?.addEventListener('click', () => {
+    modal?.classList.remove('hidden');
+    // Align initial modal view with current active theme
+    const isDark = document.documentElement.classList.contains('dark');
+    setModalTheme(isDark ? 'dark' : 'light');
+  });
+
+  closeBtn?.addEventListener('click', () => {
+    modal?.classList.add('hidden');
+  });
+
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.add('hidden');
+    }
+  });
+
+  viewLightBtn?.addEventListener('click', () => setModalTheme('light'));
+  viewDarkBtn?.addEventListener('click', () => setModalTheme('dark'));
+
+  function setModalTheme(theme: 'light' | 'dark') {
+    if (theme === 'dark') {
+      if (iframe) iframe.src = darkFile;
+      if (downloadLink) downloadLink.href = darkFile;
+      viewDarkBtn?.classList.add('bg-slate-700', 'text-white');
+      viewLightBtn?.classList.remove('bg-white', 'text-swiss-primary', 'shadow-sm');
+    } else {
+      if (iframe) iframe.src = lightFile;
+      if (downloadLink) downloadLink.href = lightFile;
+      viewLightBtn?.classList.add('bg-white', 'text-swiss-primary', 'shadow-sm');
+      viewDarkBtn?.classList.remove('bg-slate-700', 'text-white');
+    }
+  }
+</script>

@@ -9,62 +9,62 @@ const { locale } = Astro.props;
 const t = translations[locale];
 ---
 
-<section id="experience" class="py-16 md:py-24 border-b border-swiss-border bg-white">
+<section id="experience" class="py-16 md:py-24 border-b border-swiss-border dark:border-slate-800 bg-white dark:bg-slate-900 transition-colors duration-200">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Section Header -->
     <div class="max-w-3xl mb-12">
-      <div class="inline-block px-2.5 py-1 rounded bg-neutral-100 border border-swiss-border text-swiss-secondary font-mono text-xs uppercase tracking-wider mb-3">
+      <div class="inline-block px-2.5 py-1 rounded bg-neutral-100 dark:bg-slate-800 border border-swiss-border dark:border-slate-700 text-swiss-secondary dark:text-slate-300 font-mono text-xs uppercase tracking-wider mb-3">
         {t.experience.sectionBadge}
       </div>
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-swiss-primary tracking-tight">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-swiss-primary dark:text-white tracking-tight">
         {t.experience.title}
       </h2>
-      <p class="mt-2 text-base text-swiss-secondary">
+      <p class="mt-2 text-base text-swiss-secondary dark:text-slate-300">
         {t.experience.subtitle}
       </p>
     </div>
 
     <!-- Timeline Container -->
-    <div class="relative border-l-2 border-swiss-border ml-3 md:ml-4 pl-6 md:pl-8 space-y-10">
-      {t.experience.items.map((item, index) => (
+    <div class="relative border-l-2 border-swiss-border dark:border-slate-800 ml-3 md:ml-4 pl-6 md:pl-8 space-y-10">
+      {t.experience.items.map((item) => (
         <div class="relative group">
           
           <!-- Timeline Marker Node -->
-          <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-white border-2 border-swiss-blue group-hover:scale-125 transition-transform duration-200">
-            <span class="block w-1.5 h-1.5 m-auto mt-0.5 rounded-full bg-swiss-blue"></span>
+          <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-white dark:bg-slate-900 border-2 border-swiss-blue dark:border-sky-400 group-hover:scale-125 transition-transform duration-200">
+            <span class="block w-1.5 h-1.5 m-auto mt-0.5 rounded-full bg-swiss-blue dark:bg-sky-400"></span>
           </div>
 
           <!-- Timeline Content Card -->
-          <div class="bg-swiss-bg p-6 rounded-xl border border-swiss-border card-hover shadow-swiss-sm">
+          <div class="bg-swiss-bg dark:bg-[#0B0F19] p-6 rounded-xl border border-swiss-border dark:border-slate-800 card-hover shadow-swiss-sm">
             
             <!-- Header: Dates, Location, and Company -->
             <div class="flex flex-wrap items-baseline justify-between gap-2 mb-2">
-              <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-mono font-bold bg-white text-swiss-blue border border-swiss-border">
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-mono font-bold bg-white dark:bg-slate-800 text-swiss-blue dark:text-sky-400 border border-swiss-border dark:border-slate-700">
                 {item.period}
               </span>
-              <span class="text-xs font-mono text-swiss-muted">
+              <span class="text-xs font-mono text-swiss-muted dark:text-slate-400">
                 {item.location}
               </span>
             </div>
 
             <!-- Company Name & Role Title -->
             <div class="mb-3">
-              <h3 class="text-lg font-bold text-swiss-primary tracking-tight">
+              <h3 class="text-lg font-bold text-swiss-primary dark:text-white tracking-tight">
                 {item.company}
               </h3>
-              <p class="text-sm font-medium text-swiss-blue mt-0.5">
+              <p class="text-sm font-medium text-swiss-blue dark:text-sky-400 mt-0.5">
                 {item.role}
               </p>
             </div>
 
             <!-- Core Technical & Business Focus Badge -->
-            <div class="inline-block mb-3 px-2.5 py-1 rounded bg-neutral-100/90 border border-swiss-border text-xs font-mono text-swiss-secondary">
-              <span class="font-semibold text-swiss-primary">{locale === 'fr' ? 'Focus\u00A0:' : 'Focus:'}</span> {item.focus}
+            <div class="inline-block mb-3 px-2.5 py-1 rounded bg-neutral-100/90 dark:bg-slate-800/90 border border-swiss-border dark:border-slate-750 text-xs font-mono text-swiss-secondary dark:text-slate-300">
+              <span class="font-semibold text-swiss-primary dark:text-white">{locale === 'fr' ? 'Focus\u00A0:' : 'Focus:'}</span> {item.focus}
             </div>
 
             <!-- Description -->
-            <p class="text-sm text-swiss-secondary leading-relaxed">
+            <p class="text-sm text-swiss-secondary dark:text-slate-300 leading-relaxed">
               {item.description}
             </p>
 
