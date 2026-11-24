@@ -1,0 +1,127 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { translations, type Locale } from '../i18n/translations';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = translations[locale];
+const currentUrl = new URL(Astro.url.pathname, Astro.site || 'https://rogergarciapages.github.io').href;
+const canonicalUrl = currentUrl;
+const frUrl = new URL('/', Astro.site || 'https://rogergarciapages.github.io').href;
+const enUrl = new URL('/en', Astro.site || 'https://rogergarciapages.github.io').href;
+const ogImageUrl = new URL('/images/roger-profile.jpg', Astro.site || 'https://rogergarciapages.github.io').href;
+
+// JSON-LD Structured Data
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Roger Garcia Pagès",
+  "jobTitle": locale === 'fr' 
+    ? "Ingénieur Systèmes & Automatisation | Senior Data Analyst" 
+    : "Systems & Automation Engineer | Senior Data Analyst",
+  "url": canonicalUrl,
+  "email": "mailto:roger.garcia75@gmail.com",
+  "telephone": "+34646869653",
+  "image": ogImageUrl,
+  "nationality": {
+    "@type": "Country",
+    "name": "Spain"
+  },
+  "workLocation": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Suisse Romande / Geneva / Vaud",
+      "addressCountry": "CH"
+    }
+  },
+  "knowsAbout": [
+    "Systems Engineering",
+    "Process Automation",
+    "Python",
+    "SQL",
+    "Power BI",
+    "Data Engineering",
+    "Revenue Management",
+    "Jira Service Management",
+    "REST APIs"
+  ],
+  "sameAs": [
+    "https://github.com/rogergarciapages",
+    "https://linkedin.com"
+  ]
+};
+---
+
+<!doctype html>
+<html lang={locale} class="scroll-smooth bg-swiss-bg text-swiss-primary">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Meta Tags -->
+    <title>{t.meta.title}</title>
+    <meta name="description" content={t.meta.description} />
+    <meta name="keywords" content={t.meta.keywords} />
+    <meta name="author" content="Roger Garcia Pagès" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="fr" href={frUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="x-default" href={frUrl} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content={t.meta.ogTitle} />
+    <meta property="og:description" content={t.meta.ogDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content={locale === 'fr' ? 'fr_CH' : 'en_US'} />
+    <meta property="og:locale:alternate" content={locale === 'fr' ? 'en_US' : 'fr_CH'} />
+    <meta property="profile:first_name" content="Roger" />
+    <meta property="profile:last_name" content="Garcia Pagès" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={t.meta.ogTitle} />
+    <meta name="twitter:description" content={t.meta.ogDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Typography Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+  </head>
+  <body class="min-h-screen flex flex-col bg-swiss-bg text-swiss-primary font-sans antialiased selection:bg-swiss-blue selection:text-white">
+    <!-- Accessibility Skip Link -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-swiss-blue focus:text-white focus:rounded focus:shadow-lg focus:outline-none"
+    >
+      {locale === 'fr' ? 'Aller au contenu principal' : 'Skip to main content'}
+    </a>
+
+    <!-- Top Navigation Bar -->
+    <Navbar locale={locale} />
+
+    <!-- Main Content Container -->
+    <main id="main-content" class="flex-grow">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <Footer locale={locale} />
+  </body>
+</html>

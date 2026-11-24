@@ -1,0 +1,198 @@
+---
+import { translations, type Locale } from '../i18n/translations';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = translations[locale];
+---
+
+<footer id="contact" class="bg-swiss-dark text-white border-t border-neutral-800">
+  <!-- Contact Action Header & Grid -->
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+    
+    <div class="max-w-3xl mb-12">
+      <div class="inline-block px-2.5 py-1 rounded bg-neutral-800 border border-neutral-700 text-blue-400 font-mono text-xs uppercase tracking-wider mb-3">
+        {t.contact.sectionBadge}
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+        {t.contact.title}
+      </h2>
+      <p class="mt-2 text-base text-neutral-400">
+        {t.contact.subtitle}
+      </p>
+    </div>
+
+    <!-- Contact Details Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+      
+      <!-- Card 1: Email -->
+      <div class="p-5 rounded-xl bg-neutral-900/90 border border-neutral-800 flex flex-col justify-between">
+        <div>
+          <div class="text-xs font-mono text-neutral-400 uppercase tracking-wider mb-1">
+            {t.contact.emailLabel}
+          </div>
+          <a
+            href="mailto:roger.garcia75@gmail.com"
+            class="text-sm font-semibold text-white hover:text-blue-400 transition-colors break-all"
+          >
+            roger.garcia75@gmail.com
+          </a>
+        </div>
+        <div class="mt-4 pt-3 border-t border-neutral-800/80 flex items-center justify-between">
+          <a
+            href="mailto:roger.garcia75@gmail.com"
+            class="text-xs font-mono text-blue-400 hover:text-blue-300 transition-colors"
+          >
+            {t.contact.sendEmail} ↗
+          </a>
+          <button
+            id="copy-email-btn"
+            type="button"
+            class="text-xs font-mono text-neutral-400 hover:text-white transition-colors"
+            data-copied={t.contact.copied}
+          >
+            {t.contact.copyEmail}
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 2: Phone -->
+      <div class="p-5 rounded-xl bg-neutral-900/90 border border-neutral-800 flex flex-col justify-between">
+        <div>
+          <div class="text-xs font-mono text-neutral-400 uppercase tracking-wider mb-1">
+            {t.contact.phoneLabel}
+          </div>
+          <a
+            href="tel:+34646869653"
+            class="text-sm font-semibold text-white hover:text-blue-400 transition-colors"
+          >
+            +34 646 86 96 53
+          </a>
+        </div>
+        <div class="mt-4 pt-3 border-t border-neutral-800/80 flex items-center justify-between">
+          <span class="text-xs font-mono text-emerald-400 flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+            WhatsApp
+          </span>
+          <a
+            href="https://wa.me/34646869653"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-xs font-mono text-blue-400 hover:text-blue-300 transition-colors"
+          >
+            Chat ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3: Location -->
+      <div class="p-5 rounded-xl bg-neutral-900/90 border border-neutral-800 flex flex-col justify-between">
+        <div>
+          <div class="text-xs font-mono text-neutral-400 uppercase tracking-wider mb-1">
+            {t.contact.locationLabel}
+          </div>
+          <div class="text-sm font-semibold text-white">
+            {t.contact.locationValue}
+          </div>
+        </div>
+        <div class="mt-4 pt-3 border-t border-neutral-800/80">
+          <span class="text-xs font-mono text-blue-400">
+            Installation : Mai 2027
+          </span>
+        </div>
+      </div>
+
+      <!-- Card 4: Mobility / Work Permit -->
+      <div class="p-5 rounded-xl bg-neutral-900/90 border border-neutral-800 flex flex-col justify-between">
+        <div>
+          <div class="text-xs font-mono text-neutral-400 uppercase tracking-wider mb-1">
+            {t.contact.mobilityLabel}
+          </div>
+          <div class="text-sm font-semibold text-white">
+            {t.contact.mobilityValue}
+          </div>
+        </div>
+        <div class="mt-4 pt-3 border-t border-neutral-800/80">
+          <span class="text-xs font-mono text-emerald-400">
+            Aucun quota requis (UE/EFTA)
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Social & Professional Outbound Links -->
+    <div class="flex flex-wrap items-center justify-between gap-4 py-8 border-y border-neutral-800">
+      <div class="flex items-center space-x-6 text-sm font-mono">
+        <a
+          href="https://linkedin.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-neutral-300 hover:text-blue-400 transition-colors"
+        >
+          LinkedIn ↗
+        </a>
+        <a
+          href="https://github.com/rogergarciapages"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-neutral-300 hover:text-blue-400 transition-colors"
+        >
+          GitHub ↗
+        </a>
+        <a
+          href="mailto:roger.garcia75@gmail.com"
+          class="text-neutral-300 hover:text-blue-400 transition-colors"
+        >
+          Email ↗
+        </a>
+      </div>
+
+      <div class="text-xs font-mono text-neutral-400">
+        {t.footer.swissRomande}
+      </div>
+    </div>
+
+    <!-- Bottom Copyright & Swiss Typographic Compliance -->
+    <div class="pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-neutral-400 font-sans">
+      <div>
+        <p class="font-semibold text-neutral-300">
+          © 2026 Roger Garcia Pagès · Suisse Romande. <span class="font-normal text-neutral-400">{t.footer.rights}</span>
+        </p>
+        <p class="mt-1 text-[11px] text-neutral-400">
+          {t.footer.builtWith}
+        </p>
+      </div>
+
+      <div class="text-[11px] text-neutral-400 max-w-md md:text-right">
+        {t.footer.privacyNote}
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+  const copyBtn = document.getElementById('copy-email-btn');
+  if (copyBtn) {
+    const originalText = copyBtn.textContent || '';
+    const copiedText = copyBtn.getAttribute('data-copied') || 'Copié\u00A0!';
+    
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText('roger.garcia75@gmail.com');
+        copyBtn.textContent = copiedText;
+        copyBtn.classList.add('text-emerald-400');
+        setTimeout(() => {
+          copyBtn.textContent = originalText;
+          copyBtn.classList.remove('text-emerald-400');
+        }, 2500);
+      } catch (err) {
+        console.error('Failed to copy', err);
+      }
+    });
+  }
+</script>

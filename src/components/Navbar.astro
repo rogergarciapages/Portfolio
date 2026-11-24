@@ -1,0 +1,162 @@
+---
+import { translations, type Locale } from '../i18n/translations';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = translations[locale];
+
+const frLink = '/';
+const enLink = '/en';
+---
+
+<header class="sticky top-0 z-40 w-full border-b border-swiss-border bg-white/95 backdrop-blur-md transition-colors duration-200">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      
+      <!-- Logo / Monogram -->
+      <a href={locale === 'fr' ? '/' : '/en'} class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-swiss-blue focus:ring-offset-2 rounded" aria-label="Roger Garcia Pagès - Accueil">
+        <div class="w-8 h-8 rounded bg-swiss-blue flex items-center justify-center text-white font-mono font-bold text-sm tracking-tighter shadow-swiss-sm group-hover:bg-swiss-blue-hover transition-colors">
+          +
+        </div>
+        <div class="flex flex-col">
+          <span class="font-bold text-sm tracking-tight text-swiss-primary group-hover:text-swiss-blue transition-colors">
+            Roger Garcia Pagès
+          </span>
+          <span class="text-[10px] font-mono uppercase tracking-wider text-swiss-muted">
+            CH · Romande (2027)
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center space-x-1 lg:space-x-2" aria-label="Navigation principale">
+        <a href="#about" class="px-3 py-1.5 text-xs font-medium text-swiss-secondary hover:text-swiss-primary hover:bg-neutral-100 rounded transition-colors">
+          {t.nav.about}
+        </a>
+        <a href="#projects" class="px-3 py-1.5 text-xs font-medium text-swiss-secondary hover:text-swiss-primary hover:bg-neutral-100 rounded transition-colors">
+          {t.nav.projects}
+        </a>
+        <a href="#experience" class="px-3 py-1.5 text-xs font-medium text-swiss-secondary hover:text-swiss-primary hover:bg-neutral-100 rounded transition-colors">
+          {t.nav.experience}
+        </a>
+        <a href="#cv" class="px-3 py-1.5 text-xs font-medium text-swiss-secondary hover:text-swiss-primary hover:bg-neutral-100 rounded transition-colors">
+          {t.nav.cv}
+        </a>
+        <a href="#contact" class="px-3 py-1.5 text-xs font-medium text-swiss-secondary hover:text-swiss-primary hover:bg-neutral-100 rounded transition-colors">
+          {t.nav.contact}
+        </a>
+      </nav>
+
+      <!-- Right Actions: Language Switcher & Quick Contact -->
+      <div class="flex items-center space-x-3">
+        
+        <!-- Language Switcher: FR | EN -->
+        <div class="flex items-center p-0.5 bg-neutral-100 border border-swiss-border rounded text-xs font-mono" role="group" aria-label={t.nav.switchLangAria}>
+          <a
+            href={frLink}
+            class={`px-2.5 py-1 rounded transition-all duration-150 ${
+              locale === 'fr'
+                ? 'bg-white text-swiss-blue font-bold shadow-swiss-sm border border-swiss-border/60'
+                : 'text-swiss-secondary hover:text-swiss-primary'
+            }`}
+            aria-current={locale === 'fr' ? 'page' : undefined}
+          >
+            FR
+          </a>
+          <span class="text-neutral-300 select-none text-[10px]">|</span>
+          <a
+            href={enLink}
+            class={`px-2.5 py-1 rounded transition-all duration-150 ${
+              locale === 'en'
+                ? 'bg-white text-swiss-blue font-bold shadow-swiss-sm border border-swiss-border/60'
+                : 'text-swiss-secondary hover:text-swiss-primary'
+            }`}
+            aria-current={locale === 'en' ? 'page' : undefined}
+          >
+            EN
+          </a>
+        </div>
+
+        <!-- Direct CTA -->
+        <a
+          href="#cv"
+          class="hidden sm:inline-flex items-center justify-center px-3.5 py-1.5 text-xs font-medium rounded text-white bg-swiss-blue hover:bg-swiss-blue-hover transition-colors shadow-swiss-sm"
+        >
+          {locale === 'fr' ? 'CV (PDF)' : 'CV (PDF)'}
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          class="md:hidden p-2 text-swiss-secondary hover:text-swiss-primary rounded hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-swiss-blue"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label={t.nav.menuAria}
+        >
+          <svg class="w-5 h-5 menu-open-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg class="w-5 h-5 menu-close-icon hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown Navigation -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-swiss-border bg-white px-4 pt-3 pb-5 space-y-2 shadow-lg">
+    <a href="#about" class="mobile-nav-link block px-3 py-2 text-sm font-medium text-swiss-secondary hover:text-swiss-primary hover:bg-neutral-50 rounded">
+      {t.nav.about}
+    </a>
+    <a href="#projects" class="mobile-nav-link block px-3 py-2 text-sm font-medium text-swiss-secondary hover:text-swiss-primary hover:bg-neutral-50 rounded">
+      {t.nav.projects}
+    </a>
+    <a href="#experience" class="mobile-nav-link block px-3 py-2 text-sm font-medium text-swiss-secondary hover:text-swiss-primary hover:bg-neutral-50 rounded">
+      {t.nav.experience}
+    </a>
+    <a href="#cv" class="mobile-nav-link block px-3 py-2 text-sm font-medium text-swiss-secondary hover:text-swiss-primary hover:bg-neutral-50 rounded">
+      {t.nav.cv}
+    </a>
+    <a href="#contact" class="mobile-nav-link block px-3 py-2 text-sm font-medium text-swiss-secondary hover:text-swiss-primary hover:bg-neutral-50 rounded">
+      {t.nav.contact}
+    </a>
+    <div class="pt-2 border-t border-neutral-100 flex items-center justify-between">
+      <span class="text-xs text-swiss-muted font-mono">Langue</span>
+      <div class="flex items-center space-x-2 font-mono text-xs">
+        <a href={frLink} class={`px-2 py-1 rounded ${locale === 'fr' ? 'bg-swiss-blue text-white' : 'text-swiss-secondary'}`}>FR</a>
+        <a href={enLink} class={`px-2 py-1 rounded ${locale === 'en' ? 'bg-swiss-blue text-white' : 'text-swiss-secondary'}`}>EN</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const openIcon = btn?.querySelector('.menu-open-icon');
+  const closeIcon = btn?.querySelector('.menu-close-icon');
+
+  btn?.addEventListener('click', () => {
+    const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!isExpanded));
+    menu?.classList.toggle('hidden');
+    openIcon?.classList.toggle('hidden');
+    closeIcon?.classList.toggle('hidden');
+  });
+
+  // Close mobile menu upon clicking links
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      menu?.classList.add('hidden');
+      btn?.setAttribute('aria-expanded', 'false');
+      openIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+    });
+  });
+</script>
