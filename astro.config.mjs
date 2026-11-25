@@ -12,6 +12,11 @@ export default defineConfig({
     host: true,
     port: 4321
   },
+  vite: {
+    preview: {
+      allowedHosts: ['roger.oncewerehumans.com']
+    }
+  },
   integrations: [tailwind()],
   i18n: {
     defaultLocale: 'fr',
