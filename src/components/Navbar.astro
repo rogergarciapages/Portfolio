@@ -52,6 +52,22 @@ const enLink = '/en';
 
       <!-- Right Actions: Language Switcher, Theme Switcher & Quick Contact -->
       <div class="flex items-center space-x-2 sm:space-x-3">
+
+        <!-- Active Tailored Profile Pill (Visible once unlocked) -->
+        <div id="navbar-profile-pill" class="hidden items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-50 dark:bg-sky-950/80 border border-blue-200 dark:border-sky-800 text-[11px] font-mono text-swiss-blue dark:text-sky-300">
+          <svg class="w-3 h-3 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+          </svg>
+          <span id="navbar-profile-pill-text" class="font-medium hidden sm:inline truncate max-w-[170px]">Profil Activé</span>
+          <button
+            id="relock-btn"
+            type="button"
+            class="ml-1 text-[10px] text-swiss-muted dark:text-slate-400 hover:text-swiss-primary dark:hover:text-white underline cursor-pointer"
+            title="Changer de profil ou verrouiller l'accès"
+          >
+            {locale === 'fr' ? 'Changer' : 'Switch'}
+          </button>
+        </div>
         
         <!-- Dark / Light Mode Switcher Button -->
         <button
@@ -160,6 +176,12 @@ const enLink = '/en';
   themeToggle?.addEventListener('click', () => {
     const isDark = document.documentElement.classList.toggle('dark');
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+
+  // Relock / switch profile button
+  const relockBtn = document.getElementById('relock-btn');
+  relockBtn?.addEventListener('click', () => {
+    window.dispatchEvent(new CustomEvent('rgp-relock'));
   });
 
   // Mobile navigation

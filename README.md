@@ -7,10 +7,22 @@
 
 ## 🇨🇭 Positioning & Identity
 - **Name:** Roger Garcia Pagès
-- **Headline (FR):** Ingénieur Systèmes & Automatisation | Senior Data Analyst | Revenue Manager
-- **Headline (EN):** Systems & Automation Engineer | Senior Data Analyst | Revenue Manager
 - **Target Region:** Suisse Romande (Geneva, Lausanne, Vaud) — May 2027
 - **Work Authorization:** Spanish Nationality (EU/EFTA Free Movement)
+
+---
+
+## 🔐 Password-Tailored Profile System (Recruiter Access)
+The portfolio includes a stealth password gateway modal designed to intrigue recruiters and tailor the profile in real-time to the open role without leaving any trace in the browser URL:
+
+| Target Role / Track | Password | Tailored View & Focus | Priority CV Document |
+| :--- | :--- | :--- | :--- |
+| **Data Analytics & BI** | `4855` | Senior Data Analyst, SQL, Power BI, ETL, Data Quality, Franchise Store Auditing | `ROGER_GARCIA_PAGES_v3_Data_Analytics.pdf` |
+| **Systems & Automation** | `7521` (or `1042`) | Python, Groovy, REST APIs, Jira/ServiceNow, L3 Systems Support, Cloud AWS/S3 | `ROGER_GARCIA_PAGES_v1_Tech_Automation.pdf` |
+| **Revenue Management** | `9210` (or `3600`) | Yield Management, Dynamic Pricing, OTAs, SiteMinder, Hotel & E-commerce Forecasting | `ROGER_GARCIA_PAGES_v2_Revenue_Business.pdf` |
+| **Unified 360° Profile** | `2027` (or `roger`) | Complete multidisciplinary hybrid profile (Systems, Data & Revenue) | `ROGER_GARCIA_PAGES_Unified_Resume_Light.pdf` |
+
+*Stealth URL Guarantee:* The URL always remains clean (`https://roger.oncewerehumans.com/` or `/en`). Even if an access code is passed via URL parameter (`?code=4855`), the system extracts it silently into `sessionStorage` and immediately sanitizes the address bar via `window.history.replaceState()`.
 
 ---
 

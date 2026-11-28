@@ -148,12 +148,12 @@ const unified = t.cvCenter.unifiedCard;
     <!-- 3 Targeted Download Cards Grid -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       {t.cvCenter.cards.map((cv) => (
-        <div class="bg-white dark:bg-slate-900 rounded-xl border border-swiss-border dark:border-slate-800 card-hover flex flex-col justify-between p-6 sm:p-7 shadow-swiss-card">
+        <div data-profile-card={cv.id} class="cv-targeted-card bg-white dark:bg-slate-900 rounded-xl border border-swiss-border dark:border-slate-800 card-hover flex flex-col justify-between p-6 sm:p-7 shadow-swiss-card transition-all duration-300">
           
           <div>
             <!-- Top Tag and Format Badge -->
             <div class="flex items-center justify-between gap-2 mb-4">
-              <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-neutral-100 dark:bg-slate-800 text-swiss-primary dark:text-slate-200 border border-swiss-border dark:border-slate-700">
+              <span class="card-tag inline-flex items-center px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-neutral-100 dark:bg-slate-800 text-swiss-primary dark:text-slate-200 border border-swiss-border dark:border-slate-700">
                 {cv.tag}
               </span>
               <span class="inline-flex items-center gap-1 font-mono text-xs text-swiss-muted dark:text-slate-400">
@@ -331,6 +331,29 @@ const unified = t.cvCenter.unifiedCard;
 
   viewLightBtn?.addEventListener('click', () => setModalTheme('light'));
   viewDarkBtn?.addEventListener('click', () => setModalTheme('dark'));
+
+  // Highlight active profile CV card
+  const cardMap: Record<string, string> = {
+    'tech': 'tech-automation',
+    'data': 'data-analytics',
+    'revenue': 'revenue-business'
+  };
+
+  window.addEventListener('rgp-profile-activated', (e: any) => {
+    const prof = e.detail?.profile;
+    const targetId = cardMap[prof];
+    document.querySelectorAll('.cv-targeted-card').forEach((card) => {
+      const cardEl = card as HTMLElement;
+      const isTarget = cardEl.getAttribute('data-profile-card') === targetId;
+      if (isTarget) {
+        cardEl.classList.add('ring-2', 'ring-swiss-blue', 'dark:ring-sky-500', 'border-transparent');
+        cardEl.classList.remove('border-swiss-border', 'dark:border-slate-800');
+      } else {
+        cardEl.classList.remove('ring-2', 'ring-swiss-blue', 'dark:ring-sky-500', 'border-transparent');
+        cardEl.classList.add('border-swiss-border', 'dark:border-slate-800');
+      }
+    });
+  });
 
   function setModalTheme(theme: 'light' | 'dark') {
     if (theme === 'dark') {

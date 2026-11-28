@@ -35,12 +35,12 @@ const t = translations[locale];
         </h1>
 
         <div class="inline-block mb-6">
-          <p class="text-lg sm:text-xl font-semibold text-swiss-blue dark:text-sky-400 leading-snug">
+          <p data-profile-headline class="text-lg sm:text-xl font-semibold text-swiss-blue dark:text-sky-400 leading-snug">
             {t.hero.headline}
           </p>
         </div>
 
-        <p class="text-base sm:text-lg text-swiss-secondary dark:text-slate-300 leading-relaxed mb-8 max-w-2xl">
+        <p data-profile-bio class="text-base sm:text-lg text-swiss-secondary dark:text-slate-300 leading-relaxed mb-8 max-w-2xl">
           {t.hero.bio}
         </p>
 
@@ -48,12 +48,13 @@ const t = translations[locale];
         <div class="flex flex-wrap items-center gap-4 mb-10">
           <a
             href="#cv"
+            data-profile-hero-cv
             class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded text-white bg-swiss-blue hover:bg-swiss-blue-hover dark:bg-sky-600 dark:hover:bg-sky-500 shadow-swiss-card transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-swiss-blue focus:ring-offset-2"
           >
             <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
-            {t.hero.ctaCV}
+            <span class="cv-label">{t.hero.ctaCV}</span>
           </a>
 
           <a
@@ -148,28 +149,28 @@ const t = translations[locale];
           <!-- Micro Metric Highlights -->
           <div class="grid grid-cols-3 gap-2 mt-4">
             <div class="bg-white dark:bg-slate-800 p-3 rounded-lg border border-swiss-border dark:border-slate-700 text-center shadow-swiss-sm">
-              <div class="text-xl font-bold font-mono text-swiss-primary dark:text-white">
+              <div data-profile-s1-val class="text-xl font-bold font-mono text-swiss-primary dark:text-white">
                 {t.hero.stats.expYears}
               </div>
-              <div class="text-[10px] text-swiss-muted dark:text-slate-400 uppercase tracking-tight mt-0.5">
+              <div data-profile-s1-lbl class="text-[10px] text-swiss-muted dark:text-slate-400 uppercase tracking-tight mt-0.5">
                 {t.hero.stats.expLabel}
               </div>
             </div>
 
             <div class="bg-white dark:bg-slate-800 p-3 rounded-lg border border-swiss-border dark:border-slate-700 text-center shadow-swiss-sm">
-              <div class="text-xl font-bold font-mono text-swiss-blue dark:text-sky-400">
+              <div data-profile-s2-val class="text-xl font-bold font-mono text-swiss-blue dark:text-sky-400">
                 {t.hero.stats.automationImpact}
               </div>
-              <div class="text-[10px] text-swiss-muted dark:text-slate-400 uppercase tracking-tight mt-0.5">
+              <div data-profile-s2-lbl class="text-[10px] text-swiss-muted dark:text-slate-400 uppercase tracking-tight mt-0.5">
                 {t.hero.stats.automationLabel}
               </div>
             </div>
 
             <div class="bg-white dark:bg-slate-800 p-3 rounded-lg border border-swiss-border dark:border-slate-700 text-center shadow-swiss-sm">
-              <div class="text-xl font-bold font-mono text-swiss-primary dark:text-white">
+              <div data-profile-s3-val class="text-xl font-bold font-mono text-swiss-primary dark:text-white">
                 {t.hero.stats.legalSupport}
               </div>
-              <div class="text-[10px] text-swiss-muted dark:text-slate-400 uppercase tracking-tight mt-0.5">
+              <div data-profile-s3-lbl class="text-[10px] text-swiss-muted dark:text-slate-400 uppercase tracking-tight mt-0.5">
                 {t.hero.stats.legalLabel}
               </div>
             </div>
